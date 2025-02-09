@@ -1,8 +1,8 @@
-Blog Website
+#Blog Website
 
 A full-stack blog website built using HTML, CSS, EJS, Bootstrap, Node.js, Express, and MongoDB. This project allows users to sign up, sign in, upload new blogs, read blogs, change the theme, upload images, and comment on blogs.
 
-Features
+##Features
 
 User authentication (Sign Up & Sign In)
 
@@ -12,7 +12,7 @@ Upload images to blogs
 
 Change website theme
 
-Technologies Used
+##Technologies Used
 
 Frontend: HTML, CSS, EJS, Bootstrap
 
