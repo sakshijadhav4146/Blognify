@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="<%= theme || 'dark' %>">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HomePage</title>
+  </head>
+  <body class="<%= theme === 'light' ? 'light-theme' : 'dark-theme' %>">
+    <%-include('./partials/nav')  %>
+    <div class="container mt-3 ">
+      <div class="row row-cols-4">
+      <% blogs.forEach(blog => { %>
+        <div class="col">
+        <div class="card col" style="width: 18rem;">
+          <img src="<%= blog.coverImageUrl %>" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title"><%= blog.title  %></h5>
+            
+            <a href="/blog/<%= blog._id %>" class="btn btn-primary">Read</a>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+    </div>
+    
+    <%-include('./partials/script') %>
+  </body>
+</html>

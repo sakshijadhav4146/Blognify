@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blogs</title>
+    <link rel="stylesheet" href="/style/style.css" />
+  </head>
+  <body class="<%= theme === 'light' ? 'light-theme' : 'dark-theme' %>">
+
+    <!----------------Blogs ------------------>
+    <%-include('./partials/nav') %>
+    <div class="container mt-4">
+      <h1 class="mb-4"><%=blogs.title %></h1>
+      <img src="/<%= blogs.coverImageUrl %>" width="700px" />
+      <pre class="mt-4 blog-content" style="white-space: pre-wrap">
+<%= blogs.body %></pre
+      >
+    </div>
+    <div class="container mt-4">
+      <img src="<%= blogs.createdBy.profileImageURL %>" width="50px" /> <%=
+      blogs.createdBy.fullName %>
+    </div>
+    <!---------------- Comments ---------------->
+    <div class="container mt-4">
+      <h2>Comments (<%= comments.length %>)</h2>
+      <% if (locals.users) { %>
+      <form method="post" action="/blog/comment/<%= blogs._id %>">
+        <div class="mb-3">
+          <input
+            type="text"
+            name="content"
+            class="form-control mt-3"
+            placeholder="Enter your comment"
+          />
+        </div>
+        <button type="submit" class="btn btn-sm btn-primary mb-2">
+          Submit
+        </button>
+      </form>
+
+      <div class="mt-4">
+        <% comments.forEach(comment => { %>
+        <div>
+          <img src="<%= comment.createdBy.profileImageURL %>" width="30px" />
+          <%= comment.createdBy.fullName %> : <pre><%= comment.content %></pre>
+        </div>
+        <% }) %>
+      </div>
+      <% } %>
+    </div>
+
+    <%-include('./partials/script') %>
+  </body>
+</html>
